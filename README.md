@@ -1,5 +1,5 @@
 # darkgrass-lib
-![promo](https://raw.githubusercontent.com/eyedine2/darkgrass-lib/refs/heads/main/repo/promo.gif)
+![promo](https://raw.githubusercontent.com/eyedine2/darkgrass-lib/refs/heads/main/repo/promo.png)
 
 This is a library that recreates the wavy grass effect seen in deltarune chapter 1 inside fangame engine Kristal. It's highly customizable, and other cool words like that.
 
