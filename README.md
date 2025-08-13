@@ -3,7 +3,7 @@
 
 This is a library that recreates several elements from the first chapter of deltarune. Includes the wavy grass from the field of hopes and dreams, the wobbly things seen in the first dark areas, and the suits puzzle.
 
-# Using the grass
+# Field of Hopes and Dreams Grass
 
 Basic usage involves creating a square called `darkgrass` on an `objects` layer in Tiled. Make sure the layer is beneath the one the player spawns on by creating an `objects1` layer below your uppermost objects layer and putting the object there.
 
@@ -27,9 +27,9 @@ the scale of the tile being rendered. Allows light world formatted tiles (20x20)
 `animspeed (number)`
 the speed of the animation. Defaults to `6`.
 
-# solid_controllable
+# solid_controllable (spikes / invisible walls)
 
-`solid_controllable` is an incredibly basic element meant to be manipulated by cutscenes. It can be an invisible wall, or a pair of spikes. Much like the grass, any image it has tiles and has many changeable fields. These are its fields.
+`solid_controllable` is an incredibly basic element meant to be manipulated by cutscenes. It can be an invisible wall, or a pair of spikes. Much like the grass, any image it will tile on the X and Y axes and it has many changeable fields. Here they are:
 
 
 `maxframes (int)`
@@ -47,14 +47,14 @@ The image being rendered. Relative to sprites directory. Defaults to `"none"`.
 `tilescale (number)`
 the scale of the tile being rendered. Allows light world formatted tiles (20x20) to be scaled up. Defaults to `2`.
 
-# wobblything
+# Wobbly things
 
 the wobbly things seen in the first dark areas. They wobble when the player's X value is close to theirs, and can optionally be evil and shoot bullets. Referred to as `wobblything` in tiled. They take only one field
 
 `evil (bool)`
 Whether this is an evil guy that shoots bullets. Defaults to `false`.
 
-# suits puzzle
+# Suits puzzle
 
 The main puzzle from deltarune chapter 1, seen mostly in the forest area.
 
