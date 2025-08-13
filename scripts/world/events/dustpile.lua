@@ -1,5 +1,8 @@
 ---@class dustpile : Event
 ---
+---@field not_solid_on_use  boolean     *[property `not_solid_on_use`]* If this dust pile remains solid after being interacted with.
+---
+---@field cutscene      string  *[Property `cutscene`]* The name of a cutscene to start when interacted with.
 ---
 ---@overload fun(...) : dustpile
 local dustpile, super = Class(Event)
@@ -14,6 +17,8 @@ function dustpile:init(data)
     self.mytime = 0
     self.r = 30
     self.collider = Hitbox(self,0,63,126,32)
+    self.not_solid_on_use = properties["not_solid_on_use"] or false
+    self.cutscene = properties["cutscene"] or "none"
 end
 
 function dustpile:draw()
@@ -42,10 +47,16 @@ end
 function dustpile:onInteract(chara, dir)
     if self:getFlag("bust", false) == false then
         self:setFlag("bust", true)
+        if self.not_solid_on_use == true then
+            self.solid = false
+        end
         Assets.playSound("cough")
         Game.world:shakeCamera()
         for i = 1, 13 do
             Game.world:spawnObject(Registry.createEvent("dustball_pilebreak", {x = self.x + Utils.pick({20,-20}) + (i * Utils.pick({6, -6})), y = self.y + 20 + math.random(25), properties = {pilebreak = true}}))
+        end
+        if self.cutscene ~= "none" then
+            Game.world:startCutscene(self.cutscene)
         end
     end
     return true

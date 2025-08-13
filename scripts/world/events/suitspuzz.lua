@@ -1,7 +1,7 @@
 ---@class suitspuzz : Event
----@field suits_max         integer     *[property `suits_max`]* The max of the puzzle (typical values are 3 - 5)
----@field solutionid        string   *[property `solutionid`]* An array of strings representing the solution
----@field cutscene  string  *[Property `cutscene`]* The name of a cutscene to start when victory is achieved
+---@field suits_max     integer     *[property `suits_max`]* The max of the puzzle (typical values are 3 - 5)
+---@field solutionid    string   *[property `solutionid`]* An array of strings representing the solution
+---@field cutscene      string  *[Property `cutscene`]* The name of a cutscene to start when victory is achieved
 ---@overload fun(...) : suitspuzz
 local suitspuzz, super = Class(Event)
 
