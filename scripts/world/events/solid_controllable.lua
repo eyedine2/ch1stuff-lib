@@ -8,7 +8,7 @@
 ---@field tilesize_width    integer     *[property `tilesize_width`]* The width of whatever tile being used
 ---@field tilesize_height   integer     *[property `tilesize_height`]* The height of whatever tile being used
 ---
----@field myimage           string      *[Property `grassimage`]* The Image to use for the Grass
+---@field myimage           string      *[Property `myimage`]* The Image to use for the Grass
 ---
 ---@field tilescale         number     *[property `tilesize`]* The scale multiplier of whatever tile being used
 ---
