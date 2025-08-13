@@ -64,8 +64,11 @@ The suits puzzle consists of two elements, `suitspuzz`, and `suitspuzz_but`. The
 
 `myid (int)`
 Acceptable values:
+
 1 (spade)
+
 3 (diamond)
+
 5 (swap)
 
 `suitspuzz`:
@@ -77,9 +80,13 @@ Defines the length of the puzzle. If this is not set, it caps to 3.
 does nothing. The only way to define solutions currently is by going in the lua file and adding an extra conditional after line 12 `if Game.world.map.id == "testsuits" then`. For any map you want this puzzle in, you'll need to add an extra conditional with the map's name and an array for the solution.
 
 These are every symbol in the puzzle:
+
 1: spade
+
 2: diamond
+
 3: club
+
 4: heart
 
 This is not ideal behavior and liable to change.
