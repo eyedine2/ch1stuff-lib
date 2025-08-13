@@ -1,4 +1,4 @@
-# darkgrass-lib
+# ch1stuff-lib
 ![promo](https://raw.githubusercontent.com/eyedine2/darkgrass-lib/refs/heads/main/repo/promo.png)
 
 This is a library that recreates several elements from the first chapter of deltarune. Includes the wavy grass from the field of hopes and dreams, the wobbly things seen in the first dark areas, and the suits puzzle.
