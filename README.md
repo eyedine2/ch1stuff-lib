@@ -90,3 +90,6 @@ These are every symbol in the puzzle:
 4: heart
 
 This is not ideal behavior and liable to change.
+
+# Dust Pile
+The `dustpile`s that appear in the first dark areas. Emits particles, animates, and can be destroyed by interacting with them. Has no fields.
