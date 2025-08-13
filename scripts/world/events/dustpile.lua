@@ -11,7 +11,6 @@ function dustpile:init(data)
     super.init(self, data.x, data.y, 126, 92)
     properties = data.properties or {}
     self:setOrigin(0.5, 0.5)
-	self.solid = true
     self.dust = Assets.getFramesOrTexture("npcs/dw/dustpile_parts")
     self.siner = 0
     self.mytime = 0
@@ -19,6 +18,14 @@ function dustpile:init(data)
     self.collider = Hitbox(self,0,63,126,32)
     self.not_solid_on_use = properties["not_solid_on_use"] or false
     self.cutscene = properties["cutscene"] or "none"
+end
+
+function dustpile:postLoad()
+    if self.not_solid_on_use == true and self:getFlag("bust") == true then
+        self.solid = false
+    else
+        self.solid = true
+    end
 end
 
 function dustpile:draw()
