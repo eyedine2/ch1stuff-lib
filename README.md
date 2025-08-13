@@ -91,5 +91,16 @@ These are every symbol in the puzzle:
 
 This is not ideal behavior and liable to change.
 
+`cutscene (string)`
+
+The cutscene to play upon victory. Typically for removing spikes. Defaults to "none".
+
 # Dust Pile
-The `dustpile`s that appear in the first dark areas. Emits particles, animates, and can be destroyed by interacting with them. Has no fields.
+The `dustpile`s that appear in the first dark areas. Emits particles, animates, and can be destroyed by interacting with them. These are its fields:
+
+`not_solid_on_use`
+If the dustpile removes its collision on use. Defaults to `false`.
+
+`cutscene (string)`
+
+The cutscene to play upon interaction. Like the scene with susie in chapter 1. Defaults to "none".
