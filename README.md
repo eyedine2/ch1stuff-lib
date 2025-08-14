@@ -47,6 +47,8 @@ The image being rendered. Relative to sprites directory. Defaults to `"none"`.
 `tilescale (number)`
 the scale of the tile being rendered. Allows light world formatted tiles (20x20) to be scaled up. Defaults to `2`.
 
+solid_controllable also contains a custom function called `turnoff()`, which can be called from other events. It simply toggles a flag to let the object know it's a pair of spikes that needs to be retracted.
+
 # Wobbly things
 
 the wobbly things seen in the first dark areas. They wobble when the player's X value is close to theirs, and can optionally be evil and shoot bullets. Referred to as `wobblything` in tiled. They take only one field
