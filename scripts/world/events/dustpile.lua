@@ -40,12 +40,12 @@ end
 
 function dustpile:update()
     super.update(self)
-    self.siner = Utils.clampWrap(self.siner + .5 * DTMULT, 60)
+    self.siner = MathUtils.wrap(self.siner + .5 * DTMULT,0, 60)
     if self:getFlag("bust", false) == false then
         self.mytime = self.mytime + (1 * DTMULT)
         if self.mytime >= self.r then
-            Game.world:spawnObject(Registry.createEvent("dustball", {x = self.x, y = self.y, properties = {}}))
-            self.r = Utils.random(60, 300)
+            Game.world:spawnObject(Registry.createLegacyEvent("dustball", {x = self.x, y = self.y, properties = {}}))
+            self.r = MathUtils.random(300, 60)
             self.mytime = 0
         end
     end
@@ -60,7 +60,7 @@ function dustpile:onInteract(chara, dir)
         Assets.playSound("cough")
         Game.world:shakeCamera()
         for i = 1, 13 do
-            Game.world:spawnObject(Registry.createEvent("dustball_pilebreak", {x = self.x + Utils.pick({20,-20}) + (i * Utils.pick({6, -6})), y = self.y + 20 + math.random(25), properties = {pilebreak = true}}))
+            Game.world:spawnObject(Registry.createLegacyEvent("dustball_pilebreak", {x = self.x + TableUtils.pick({20,-20}) + (i * TableUtils.pick({6, -6})), y = self.y + 20 + math.random(25), properties = {pilebreak = true}}))
         end
         if self.cutscene ~= "none" then
             Game.world:startCutscene(self.cutscene)
