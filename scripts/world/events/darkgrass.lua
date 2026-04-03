@@ -24,7 +24,7 @@ function darkgrass:init(data)
 
     properties = data.properties or {}
 
-    self.animspeed = properties["animspeed"] or 6
+    self.animspeed = properties["animspeed"] or 0.2
     self.tilesize_width = properties["tilesize_width"] or 40
     self.tilesize_height = properties["tilesize_height"] or 40
     self.tilescale = properties["tilescale"] or 1
@@ -35,6 +35,7 @@ function darkgrass:init(data)
     self.frame = 1
     self.grass = Assets.getFramesOrTexture(self.grassimage)
     self.c = 0
+    self.index = 0
 
 
 end
@@ -46,11 +47,16 @@ end
 
 function darkgrass:draw()
     super.draw(self)
-    local id = 1
+    self.index = self.index + DTMULT
     for i = 1, self.tiles_x do
         for j = 1, self.tiles_y do
-            Draw.draw(self.grass[Utils.clampWrap(Utils.round(self.frame + (self.x / 320) + (i * 0.125) + (j * 0.125) + (self.y / 320)),1 ,self.maxframes )], (i - 1) * self.tilesize_width, (j - 1) * self.tilesize_height, 0, self.tilescale, self.tilescale)
-            id = id + 1
+            Draw.draw(self.grass
+            [Utils.clampWrap(MathUtils.floorToMultiple(self.frame + (self.x / 320) + (i * 0.125) + (j * 0.125) + (self.y / 320),1),1 ,self.maxframes )],
+                (i - 1) * self.tilesize_width,
+                (j - 1) * self.tilesize_height,
+                0, 
+                self.tilescale,
+                self.tilescale)
             
         end
     end
@@ -58,7 +64,7 @@ function darkgrass:draw()
         self.frame = Utils.clampWrap((self.frame + 1), 1, self.maxframes)
         self.c = 0
     else
-        self.c = self.c + (self.animspeed * DT)
+        self.c = self.c + (self.animspeed * DTMULT)
     end
 
 end
