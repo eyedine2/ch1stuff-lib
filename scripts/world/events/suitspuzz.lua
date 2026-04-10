@@ -8,12 +8,7 @@ local suitspuzz, super = Class(Event)
 function suitspuzz:init(data)
     super.init(self, data)
     properties = data.properties or {}
-    -- solution to the puzzle. Works even if it's longer than the max.
-    if Game.world.map.id == "testsuits" then
-        self.solution = {2,4,3,1}
-    else
-        self.solution = {1,1,1,1}
-    end
+
     -- Suits
     self.suit = {}
     -- Maximum for the puzzle
@@ -31,6 +26,13 @@ function suitspuzz:init(data)
     end
     -- Cutscene
     self.cutscene = properties["cutscene"] or "none"
+    -- sol
+    self.solution = {}
+    self.altsol = {}
+    for i = 1, self.max do 
+        self.altsol[i] = 1
+    end
+    self.solution = data.properties["solutionid"] or self.altsol
 end
 
 function suitspuzz:myevent(myevent)

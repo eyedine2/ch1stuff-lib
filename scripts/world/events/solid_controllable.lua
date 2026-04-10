@@ -48,13 +48,17 @@ end
 function solid_controllable:update()
     super.update(self)
     if self:getFlag("off", false) == true then
-        self.frame = 2
+        if self.maxframes > 1 then self.frame = 2 end
         self.solid = false
     end
 end
 
 function solid_controllable:turnoff()
     self:setFlag("off", true)
+end
+
+function solid_controllable:turnon()
+    self:setFlag("off", false)
 end
 
 return solid_controllable
