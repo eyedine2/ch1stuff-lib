@@ -78,8 +78,8 @@ Acceptable values:
 `suits_max (int)`
 Defines the length of the puzzle. If this is not set, it caps to 3.
 
-`solutionid (string)`
-does nothing. The only way to define solutions currently is by going in the lua file and adding an extra conditional after line 12 `if Game.world.map.id == "testsuits" then`. For any map you want this puzzle in, you'll need to add an extra conditional with the map's name and an array for the solution.
+`solutionid (list)`
+an array of ints to determine the solution of the puzzle.
 
 These are every symbol in the puzzle:
 
@@ -90,8 +90,6 @@ These are every symbol in the puzzle:
 3: club
 
 4: heart
-
-This is not ideal behavior and liable to change.
 
 `cutscene (string)`
 
@@ -106,3 +104,34 @@ If the dustpile removes its collision on use. Defaults to `false`.
 `cutscene (string)`
 
 The cutscene to play upon interaction. Like the scene with susie in chapter 1. Defaults to "none".
+
+# Eye Puzzle
+
+The first puzzle encountered in the game in the cliffs area, enhanced to support whatever kind of eye=swapping things you can thing of
+
+consists of two elements, `eye_puzzle`, and `eye_puzzle_switch`. The former is the actual puzzle, while the latter is the buttons that send a signal to the puzzle. Each of these have configurable fields that you ***NEED*** to set to ensure they work.
+
+`eye_puzzle`:
+
+`cutscene (string)`
+
+The cutscene to play upon victory. Typically for removing spikes. Defaults to "none".
+
+`length (int)`:
+
+Defines the length of the puzzle. If this is not set, it caps to 3.
+
+`eye_puzzle_switch`:
+
+`behavior (list)`:
+
+What this switch object does in relation to its other siblings. Should encompass the full list of the eye puzzle's length.
+
+0 = ignore
+1 = swap
+
+setting this will also dynamically draw hints for the puzzle.
+
+`myid (int)`:
+
+Which number on the puzzle's array we are. Used for drawing only. Usually set to be incremental (left is 1, right is the end of the length array).
